@@ -41,7 +41,7 @@ def test_central_agent_guide_exists():
     central_file = PLUGIN_ROOT / "agents" / "agent.md"
     assert central_file.exists(), "agents/agent.md must exist"
     content = central_file.read_text(encoding="utf-8")
-    assert "name: agent" in content
+    assert "name: agent" in content or "name: monitoring-catalog" in content
     assert "Monitoring Subagents" in content
 
 

@@ -1,6 +1,12 @@
 ---
-name: agent
+name: monitoring-catalog
 description: Architecture overview and catalog for the agentic-monitoring-plugin subagents.
+enable_write_tools: false
+enable_subagent_tools: false
+enable_mcp_tools: false
+tools:
+  - read_file
+  - list_dir
 ---
 
 # Monitoring Subagents & Telemetry Architecture (`agents/agent.md`)
@@ -25,9 +31,9 @@ agents/
 
 ## 2. Subagent Catalog
 
-| Agent Handle | Directory | `enable_write_tools` | `enable_subagent_tools` | `enable_mcp_tools` | Description |
-| :--- | :--- | :---: | :---: | :---: | :--- |
-| **`@monitoring`** | [`agents/monitoring/`](file:///Users/gpfister/Development/Projects/gpfister/agentic/agentic-monitoring-plugin/agents/monitoring/) | `True` | `False` | `True` | Background surveillance worker watching logs, serial consoles, and container streams with anomaly pause gates. |
+| Agent Handle | Directory | `enable_write_tools` | `enable_subagent_tools` | `enable_mcp_tools` | Allowed Tools | Description |
+| :--- | :--- | :---: | :---: | :---: | :--- | :--- |
+| **`@monitoring`** | [`agents/monitoring/`](file:///Users/gpfister/Development/Projects/gpfister/agentic/agentic-monitoring-plugin/agents/monitoring/) | `True` | `False` | `False` | `run_command`, `manage_task`, `read_file`, `list_dir`, `search_dir`, `ask_question` | Background surveillance worker watching logs, serial consoles, and container streams with anomaly pause gates. |
 
 ---
 
