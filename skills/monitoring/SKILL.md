@@ -15,6 +15,7 @@ The `monitoring` skill provides runbooks and operational procedures for streamin
 - **Error Detection**: Detects exceptions, stack traces, panics, and custom alert conditions.
 - **Intervention Gate**: Pauses monitoring immediately when an anomaly is discovered, formulating a structured `MonitoringAlert` and asking the user via `ask_question` how to proceed.
 - **Multiple Concurrent Instances**: Run separate monitors simultaneously, differentiated by target identifiers (e.g., `monitoring-serial`, `monitoring-backend`).
+- **Obsidian Archival (@coding-document)**: When `agentic-obsidian-plugin` is installed, invokes `@coding-document` at the end to record monitoring telemetry, stream summaries, and alert records in `agentic-obsidian/monitoring/`.
 
 ## Triggering Monitoring
 

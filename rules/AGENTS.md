@@ -21,3 +21,8 @@ This rule set applies whenever the `agentic-monitoring-plugin` is active in an A
 ## 3. Communication & Links
 - Keep alert summaries high-signal and concise.
 - Always provide clickable markdown links using the `file://` scheme when referencing local log files, configuration paths, or source files implicated in stack traces.
+
+---
+
+## 4. Documentation Archival with @coding-document
+- When `agentic-obsidian-plugin` is active, `@coding-monitor` / `@monitoring` must invoke `@coding-document` at the end to record monitoring results, telemetry summaries, and anomaly alerts in `agentic-obsidian/monitoring/`.

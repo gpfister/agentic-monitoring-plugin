@@ -33,7 +33,7 @@ agents/
 
 | Agent Handle | Directory | `enable_write_tools` | `enable_subagent_tools` | `enable_mcp_tools` | Allowed Tools | Description |
 | :--- | :--- | :---: | :---: | :---: | :--- | :--- |
-| **`@monitoring`** | [`agents/monitoring/`](file:///Users/gpfister/Development/Projects/gpfister/agentic/agentic-monitoring-plugin/agents/monitoring/) | `True` | `False` | `False` | `run_command`, `manage_task`, `read_file`, `list_dir`, `ask_question` | Background surveillance worker watching logs, serial consoles, and container streams with anomaly pause gates. |
+| **`@monitoring`** | [`agents/monitoring/`](file:///Users/gpfister/Development/Projects/gpfister/agentic/agentic-monitoring-plugin/agents/monitoring/) | `True` | `True` | `False` | `run_command`, `manage_task`, `read_file`, `list_dir`, `ask_question`, `invoke_subagent`, `send_message` | Background surveillance worker watching logs, serial consoles, and container streams with anomaly pause gates and Obsidian documentation handoff via `@coding-document`. |
 
 ---
 
