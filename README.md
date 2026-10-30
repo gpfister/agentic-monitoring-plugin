@@ -6,9 +6,10 @@ Telemetry, stream surveillance, and log monitoring companion plugin for [Google 
 `agentic-monitoring-plugin` provides dedicated subagents and progressive-disclosure skills to watch application logs, Docker containers, and serial ports (`/dev/tty*`) continuously in the background. It intercepts errors and crashes early with interactive pause gates.
 
 ## Features
-- **Declarative Subagent (`@monitoring`)**: Background streaming worker defined in [`agents/monitoring/agent.md`](file:///Users/gpfister/Development/Projects/gpfister/agentic/agentic-monitoring-plugin/agents/monitoring/agent.md).
+- **Declarative Subagent (`@coding-monitor`)**: Background streaming worker defined in [`agents/coding-monitor/agent.md`](file:///Users/gpfister/Development/Projects/gpfister/agentic/agentic-monitoring-plugin/agents/coding-monitor/agent.md) (aliases: `@coding-monitoring`, `@monitoring`).
 - **Progressive Skill (`monitoring`)**: Surveillance runbook and trigger instructions in [`skills/monitoring/SKILL.md`](file:///Users/gpfister/Development/Projects/gpfister/agentic/agentic-monitoring-plugin/skills/monitoring/SKILL.md).
-- **Interactive Anomaly Gate**: Immediately halts log cascading and queries the user via Antigravity's `ask_question` tool.
+- **Interactive Anomaly Gate & Investigation (@coding-investigate)**: Immediately halts log cascading; if `agentic-investigate-plugin` is installed, asks user via `ask_question` whether to invoke `@coding-investigate`.
+- **End-of-Monitoring Vault Archival (@coding-document)**: If `agentic-document-plugin` (or `agentic-obsidian-plugin`) is installed, documents telemetry and alerts in the Obsidian vault.
 - **Rules (`rules/AGENTS.md`)**: Enforces safe log streaming, bounded buffers, and clean formatting.
 
 ## Installation & Activation

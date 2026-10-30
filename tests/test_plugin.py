@@ -30,10 +30,12 @@ def test_contributing_exists():
 
 
 def test_monitoring_agent_exists():
-    agent_file = PLUGIN_ROOT / "agents" / "monitoring" / "agent.md"
-    assert agent_file.exists(), "agents/monitoring/agent.md must exist"
+    agent_file = PLUGIN_ROOT / "agents" / "coding-monitor" / "agent.md"
+    if not agent_file.exists():
+        agent_file = PLUGIN_ROOT / "agents" / "monitoring" / "agent.md"
+    assert agent_file.exists(), "agent.md must exist in coding-monitor or monitoring"
     content = agent_file.read_text(encoding="utf-8")
-    assert "name: monitoring" in content
+    assert "name: coding-monitor" in content or "coding-monitor" in content
     assert "Telemetry Monitor" in content
 
 
@@ -41,7 +43,7 @@ def test_central_agent_guide_exists():
     central_file = PLUGIN_ROOT / "agents" / "agent.md"
     assert central_file.exists(), "agents/agent.md must exist"
     content = central_file.read_text(encoding="utf-8")
-    assert "name: agent" in content or "name: monitoring-catalog" in content
+    assert "name: agent" in content or "name: monitoring-catalog" in content or "name: coding-monitoring-catalog" in content
     assert "Monitoring Subagents" in content
 
 

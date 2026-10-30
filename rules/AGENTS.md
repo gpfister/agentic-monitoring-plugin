@@ -10,11 +10,13 @@ This rule set applies whenever the `agentic-monitoring-plugin` is active in an A
 
 ---
 
-## 2. Interactive Pause Gate Protocol
+## 2. Interactive Pause Gate & Investigation Protocol
 - When an anomaly or error is detected:
   1. Halt surveillance immediately to prevent log cascading.
-  2. Synthesize an actionable `MonitoringAlert` capturing the root error and stack trace.
-  3. Prompt the user with specific, actionable remediation choices via `ask_question`.
+  2. Synthesize an actionable `MonitoringAlert` capturing the root error, timestamp, stream source, and stack trace.
+  3. Prompt the user via `ask_question`:
+     - If `agentic-investigate-plugin` is installed: ask the user if they want to invoke `@coding-investigate` to investigate the root cause. If confirmed, invoke `@coding-investigate`.
+     - If `agentic-investigate-plugin` is NOT installed: present manual inspection, restart, ignore, or abort choices without offering `@coding-investigate`.
 
 ---
 
@@ -25,4 +27,5 @@ This rule set applies whenever the `agentic-monitoring-plugin` is active in an A
 ---
 
 ## 4. Documentation Archival with @coding-document
-- When `agentic-obsidian-plugin` is active, `@coding-monitor` / `@monitoring` must invoke `@coding-document` at the end to record monitoring results, telemetry summaries, and anomaly alerts in `agentic-obsidian/monitoring/`.
+- When `agentic-document-plugin` (or `agentic-obsidian-plugin`) is active, `@coding-monitor` must invoke `@coding-document` at the end of the monitoring to record monitoring results, telemetry summaries, and anomaly alerts in `agentic-obsidian/monitoring/`.
+- If `agentic-document-plugin` (or `agentic-obsidian-plugin`) is not installed, output the monitoring report and alert summary directly in chat without invoking subagents.
